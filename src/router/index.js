@@ -3,18 +3,37 @@ import Home from '../views/Home.vue'
 
 const routes = [
   {
-    path: '/',
-    name: 'Home',
-    component: Home
+    path: "/",
+    redirect: "/home"
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
+    path: "/home",
+    component: () => import ('../views/home/Home.vue'),
+    meta:{
+      title:"主页"
+    }
+  },
+  {
+    path: "/category",
+    component: () => import ('../views/category/Category.vue'),
+    meta:{
+      title:"分类"
+    }
+  },
+  {
+    path: "/cart",
+    component: () => import ('../views/cart/Cart.vue'),
+    meta:{
+      title:"购物车"
+    }
+  },
+  {
+    path: "/profile",
+    component: () => import ('../views/profile/Profile.vue'),
+    meta:{
+      title:"我的"
+    }
+  },
 ]
 
 const router = createRouter({
